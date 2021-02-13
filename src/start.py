@@ -2,14 +2,14 @@ import DiskSizeUtility
 import DiskObject
 
 # The target folder for scanning.
-scan_path = "C:\\Users\\"
+scanpath = "C:\\Users\\"
 # The result file.
 filepath = "D:\\filesizescan.txt"
 
 # Filters out all files, that are smaller that the threshold.
 minimum_file_size_mb = 0
 
-disk_util = DiskSizeUtility.DiskSizeUtility(scan_path)
+disk_util = DiskSizeUtility.DiskSizeUtility(scanpath)
 print("Starting disk scan ...")
 
 # Invoke a new scan.
