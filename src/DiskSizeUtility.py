@@ -3,6 +3,7 @@ import DiskObject
 
 
 def get_size(path, entries):
+    """ Gets the size for an folder."""
     size = 0
 
     for entry in entries:
@@ -12,14 +13,18 @@ def get_size(path, entries):
 
 
 class DiskSizeUtility:
+    """Handles all required operations for gathering the largest folder from the disk."""
     rootFolder = ""
 
     def __init__(self, target_folder):
+        """ Init method just initialized the target_folder"""
         self.rootFolder = target_folder
 
     def get_directories(self, minimum_file_size_mb):
+        """ Gets the sub directories in the target folder."""
         entries = []
         result_directories = []
+        # Walk through all directories and collect large files and folder.
         for root, directories, files in os.walk(self.rootFolder, topdown=False):
             for name in files:
                 fi = os.path.join(root, name)
@@ -45,5 +50,6 @@ class DiskSizeUtility:
         # Sort the entries by size.
         entries.extend(result_directories)
         entries.sort(key=lambda x: x.object_size, reverse=True)
+
         # Contains all investigated values
         return entries

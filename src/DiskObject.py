@@ -1,4 +1,5 @@
 class DiskObject:
+    """The DiscObject is used for handling a folder or file information."""
     object_size = 0
     object_path = ""
     is_directory = bool(0)
